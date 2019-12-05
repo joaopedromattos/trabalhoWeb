@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/4.5.95/css/materialdesignicons.min.css
+    "
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <template>
+        <b-navbar>
+          <template slot="brand">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+              <img
+                src="/images/Todos.svg"
+                alt="Lightweight UI components for Vue.js based on Bulma"
+                style="height:50%;"
+              />
+            </b-navbar-item>
+          </template>
+          <template slot="start">
+            <b-navbar-item href="#">
+              Home
+            </b-navbar-item>
+
+            <b-navbar-item href="#">
+              Sobre
+            </b-navbar-item>
+
+            <b-navbar-item href="#">
+              Junte-se a nós
+            </b-navbar-item>
+          </template>
+
+          <template slot="end">
+            <b-navbar-item tag="div">
+              <div class="buttons">
+                <a class="button is-primary" href="/index.html">
+                  <strong>Entrar</strong>
+                </a>
+              </div>
+            </b-navbar-item>
+          </template>
+        </b-navbar>
+      </template>
+
+      <div class="title">
+        <div class="name">
+          <h1>Organização, redefinida.</h1>
+          <h3>Esqueça o velho caderno de lembretes</h3>
+        </div>
+        <br />
+        <div class="container is-fluid">
+          <div class="columns ">
+            <div class="column">
+              <b-button type="is-primary"
+                ><a href="/" style="color: inherit;text-decoration: inherit;"
+                  >Junte-se a nós!</a
+                ></b-button
+              >
+            </div>
+            <div class="column">
+              <b-button type="is-primary" outlined>Saiba mais</b-button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="title">
+        <div class="container is-fluid">
+          <div class="columns ">
+            <div class="column">
+              <h1>Um pouco sobre quem somos...</h1>
+            </div>
+            <div class="column">
+              <div class="textoSobre">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  consequat, lorem at convallis imperdiet, odio augue imperdiet
+                  arcu, at auctor mauris neque quis libero. Aenean in tempus
+                  ligula. Mauris ac lacus blandit, feugiat justo malesuada,
+                  dictum tortor. Nullam feugiat scelerisque leo, vitae fringilla
+                  ipsum tristique a. Morbi sed finibus lacus. Sed eu feugiat
+                  tortor, quis sagittis velit. Vestibulum dolor leo, tempor et
+                  sagittis et, cursus vel leo. Cras luctus, mauris in convallis
+                  porttitor, velit neque mattis mi, vel eleifend nisi sem quis
+                  enim. Donec vel euismod dolor, eu aliquam mi.
+                </p>
+                <p>
+                  Maecenas quis lacus arcu. Morbi blandit massa convallis tortor
+                  dignissim auctor. Nullam consequat odio sed sem dapibus, et
+                  ornare magna accumsan. Fusce lacinia augue ac nisl pretium
+                  rutrum. Suspendisse aliquet, turpis eget mattis rhoncus, mi
+                  dui eleifend lorem, ac varius risus tellus in mauris.
+                  Vestibulum porttitor laoreet neque eu eleifend. Class aptent
+                  taciti sociosqu ad litora torquent per conubia nostra, per
+                  inceptos himenaeos. Aliquam erat volutpat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="title">
+          <div class="name">
+            <h1>Interessado?</h1>
+          </div>
+          <br />
+          <div class="container is-fluid">
+            <div class="columns ">
+              <div class="column">
+                <b-button type="is-primary"
+                  ><a href="/" style="color: inherit;text-decoration: inherit;"
+                    >Junte-se a nós!</a
+                  ></b-button
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <br />
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <p class="textoSobre">
+              Feito com ☕ por
+              <a href="https://www.github.com/joaopedromattos"
+                >João Pedro Mattos</a
+              >
+              e
+              <a href="https://www.github.com/Luifr">Lui Franco Rocha</a>
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/landingPage.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+</html>

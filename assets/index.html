@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css" />
+    <link rel="stylesheet" href="styles/landingPage.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/4.5.95/css/materialdesignicons.min.css
+    "
+    />
+    <title>Seus Todos</title>
+  </head>
+  <body>
+    <div id="app">
+      <template>
+        <b-navbar>
+          <template>
+            <!-- <b-dropdown aria-role="list">
+              <button class="button is-primary" slot="trigger">
+                <span>Central de ações</span>
+                <b-icon icon="menu-down"></b-icon>
+              </button>
+
+              <b-dropdown-item v-on:click="removeAllTodos" aria-role="listitem"
+                >Remover todos</b-dropdown-item
+              >
+              <b-dropdown-item
+                v-on:click="sortAlphabetically "
+                aria-role="listitem"
+                >Ordenar alfabeticamente</b-dropdown-item
+              >
+              <b-dropdown-item
+                v-on:click="sortByCreationDate "
+                aria-role="listitem"
+                >Ordenar por data de criação</b-dropdown-item
+              >
+            </b-dropdown> -->
+
+            <template slot="brand">
+              <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <img
+                  src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
+                  alt="Lightweight UI components for Vue.js based on Bulma"
+                />
+              </b-navbar-item>
+            </template>
+            <template slot="start">
+              <b-navbar-dropdown label="Central de ações">
+                <b-navbar-item v-on:click="removeAllTodos">
+                  Remover todos
+                </b-navbar-item>
+                <b-navbar-item v-on:click="sortAlphabetically ">
+                  Ordenar alfabeticamente
+                </b-navbar-item>
+                <b-navbar-item v-on:click="sortByCreationDate ">
+                  Ordenar por data de criação
+                </b-navbar-item>
+              </b-navbar-dropdown>
+            </template>
+          </template>
+
+          <template slot="end">
+            <b-navbar-item tag="div">
+              <div class="buttons">
+                <a class="button is-light" href="/">
+                  Log out
+                </a>
+              </div>
+            </b-navbar-item>
+          </template>
+        </b-navbar>
+      </template>
+
+      <div class="jumbo">
+        <img class="top-img" src="https://picsum.photos/1920/600" alt="" />
+        <div class="container centered">
+          <div class="paper">
+            <h1 class="page-title">Bem-vindo de volta</h1>
+
+            <b-input
+              placeholder="Ex: 'Comprar leite'"
+              v-on:keyup.enter="addTodo"
+              v-model="message"
+              rounded
+            ></b-input>
+
+            <br />
+            <div style="margin: auto;">
+              <p>
+                <b-button
+                  class="button is-primary"
+                  rounded
+                  v-on:keyup.enter="addTodo"
+                  v-on:click="addTodo"
+                  >Adicionar lembrete!</b-button
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns center">
+        <div class="column">
+          <br />
+          <div
+            style="margin-left: 20%; margin-right:20%; margin-bottom: 5%;"
+            class="card"
+            v-for="todo, index in todos"
+          >
+            <header class="card-header">
+              <p class="card-header-title">
+                {{ todo.text }}
+              </p>
+              <a href="#" class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </a>
+            </header>
+            <!-- <div class="card-content">
+              <div class="content">
+                {{ todo.text }}
+              </div>
+            </div> -->
+            <footer class="card-footer">
+              <a v-on:click="showEditModal(index)" class="card-footer-item"
+                >Edit</a
+              >
+              <a
+                class="card-footer-item"
+                v-on:click="removeTodo(index)"
+                style="color: hsl(348, 86%, 61%)"
+                >Delete</a
+              >
+            </footer>
+          </div>
+          <!-- <ol>
+            <li v-for="todo, index in todos" style="list-style-type: none;">
+              <span v-on:click="showEditModal(index)">{{ todo.text }}</span>
+              <b-button v-on:click="removeTodo(index)" type="is-danger"
+                ><span class="mdi mdi-close"></span
+              ></b-button>
+            </li>
+          </ol> -->
+        </div>
+      </div>
+
+      <div v-if="edit" id="modalEdit">
+        <input type="text" v-model="editMessage" />
+        <span v-bind="todos" v-bind="editIndex"
+          >Created at: {{ new Date(todos[editIndex].createdAt).toLocaleString()
+          }}</span
+        >
+        <b-button v-on:click="editTodo"> Salvar </b-button>
+        <b-button v-on:click="closeEditModal"> Sair sem salvar </b-button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+</html>
