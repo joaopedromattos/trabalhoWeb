@@ -4,17 +4,17 @@ let updateTodo = async response => {
 };
 
 app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    message: 'Lista de afazeres!',
-    editMessage: '',
+    message: "Lista de afazeres!",
+    editMessage: "",
     editIndex: -1,
     edit: false,
     todos: []
   },
   mounted: function() {
-    const url = '/todos/';
-    fetch(url, { method: 'GET' }).then(updateTodo);
+    const url = "/todos/";
+    fetch(url, { method: "GET" }).then(updateTodo);
   },
   methods: {
     // PAGE
@@ -26,51 +26,51 @@ app = new Vue({
     closeEditModal: function() {
       this.edit = false;
       this.editIndex = -1;
-      this.editMessage = '';
+      this.editMessage = "";
     },
 
     // TODO-LIST CRUD
     addTodo: function() {
-      if (this.message === '') {
+      if (this.message === "") {
         return;
       }
 
       const url = `/todos/?todo=${this.message}`;
-      fetch(url, { method: 'POST' }).then(updateTodo);
+      fetch(url, { method: "POST" }).then(updateTodo);
 
-      this.message = '';
+      this.message = "";
     },
 
     editTodo: function() {
-      if (this.editMessage === '' || this.editIndex === -1) {
+      if (this.editMessage === "" || this.editIndex === -1) {
         return;
       }
       const url = `/todos/?index=${this.editIndex}&text=${this.editMessage}`;
-      fetch(url, { method: 'PUT' }).then(updateTodo);
+      fetch(url, { method: "PUT" }).then(updateTodo);
 
       this.editIndex = -1;
-      this.editMessage = '';
+      this.editMessage = "";
       this.edit = false;
     },
 
     removeTodo: function(index) {
       const url = `/todos/?todo=${index}`;
-      fetch(url, { method: 'DELETE' }).then(updateTodo);
+      fetch(url, { method: "DELETE" }).then(updateTodo);
     },
 
     removeAllTodos: function() {
-      const url = '/todos/all';
-      fetch(url, { method: 'DELETE' }).then(updateTodo);
+      const url = "/todos/all";
+      fetch(url, { method: "DELETE" }).then(updateTodo);
     },
 
     // TODO-LIST Sorts
     sortAlphabetically: function() {
-      const url = '/todos/sort/alphabetically';
-      fetch(url, { method: 'POST' }).then(updateTodo);
+      const url = "/todos/sort/alphabetically";
+      fetch(url, { method: "POST" }).then(updateTodo);
     },
     sortByCreationDate: function() {
-      const url = '/todos/sort/creationDate';
-      fetch(url, { method: 'POST' }).then(updateTodo);
+      const url = "/todos/sort/creationDate";
+      fetch(url, { method: "POST" }).then(updateTodo);
     }
   }
 });

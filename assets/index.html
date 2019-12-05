@@ -40,7 +40,7 @@
             <template slot="brand">
               <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img
-                  src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
+                  src="/images/Todos.svg"
                   alt="Lightweight UI components for Vue.js based on Bulma"
                 />
               </b-navbar-item>
@@ -73,7 +73,11 @@
       </template>
 
       <div class="jumbo">
-        <img class="top-img" src="https://picsum.photos/1920/600" alt="" />
+        <img
+          class="top-img"
+          src="http://localhost:1337/images/backgroundTitle.jpg"
+          alt=""
+        />
         <div class="container centered">
           <div class="paper">
             <h1 class="page-title">Bem-vindo de volta</h1>
@@ -125,9 +129,7 @@
               </div>
             </div> -->
             <footer class="card-footer">
-              <a v-on:click="showEditModal(index)" class="card-footer-item"
-                >Edit</a
-              >
+              <a @click="cardModal()" class="card-footer-item">Edit</a>
               <a
                 class="card-footer-item"
                 v-on:click="removeTodo(index)"
